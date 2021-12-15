@@ -69,14 +69,23 @@ public class CustomerServiceImpl implements CustomerService{
 	
 	public User updateUserByPut(User user) {
 		LOG.info("In CustomerServiceImpl trigerred method updateUserByPut()");
-		UserEntity userEntity = customerMapper.domainToEntity(user);
-		return this.customerMapper.entityToDomain(customerRepository.save(userEntity));
+		Optional<UserEntity> optUser = customerRepository.findById(user.getId());
+		if(optUser.isPresent()) {
+			UserEntity userEntity = customerMapper.domainToEntity(user);
+			return this.customerMapper.entityToDomain(customerRepository.save(userEntity));
+		}
+		else {
+			LOG.info("In CustomerServiceImpl throwing user not found exception");
+			throw new UserNotFoundException("we couldn't find a customer record with this Id");
+		}
+		
 	}
 
-	public void deleteUser(Integer id) {
+	public Integer deleteUser(Integer id) {
 		Optional<UserEntity> user = customerRepository.findById(id);
 		if(user.isPresent()) {
 			customerRepository.deleteById(id);
+			return id;
 		}
 		else {
 			LOG.info("In CustomerServiceImpl throwing user not found exception");

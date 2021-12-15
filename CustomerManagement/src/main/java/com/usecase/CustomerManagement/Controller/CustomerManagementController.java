@@ -70,8 +70,11 @@ public class CustomerManagementController {
 	public ResponseEntity<UserResponse> getUser(
 			@Parameter(description = "Enter the Id of the user")
 			@PathVariable Integer id) {
+		
 		LOG.info("Triggered getUser() method in controller");
+		
 		UserResponse userRes = customerMapper.domainToResponse(customerService.getUserById(id));
+		
 		LOG.info("Returned Response in getUser() method in controller");
 		return new ResponseEntity<UserResponse>(userRes, HttpStatus.OK);
 		
@@ -137,9 +140,9 @@ public class CustomerManagementController {
 			@Parameter(description = "Enter the Id of the user")
 			@PathVariable Integer id) {
 		LOG.info("Triggered deleteUser() method in controller");
-		customerService.deleteUser(id);
+		Integer deletedId = customerService.deleteUser(id);
 		LOG.info("Returned Response in deleteUser() method in controller");
-		return new ResponseEntity<String>("User with "+id+ " is Successfully deleted", HttpStatus.ACCEPTED);
+		return new ResponseEntity<String>("User with "+deletedId+ " is Successfully deleted", HttpStatus.ACCEPTED);
 		
 	}
 	

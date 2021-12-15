@@ -8,6 +8,6 @@ public interface CustomerService {
 	User saveUser(User user);
 	User updateUser(User user, Integer id);
 	User updateUserByPut(User user);
-	void deleteUser(Integer id);
+	Integer deleteUser(Integer id);
 
 }
