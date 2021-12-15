@@ -2,6 +2,8 @@ package com.usecase.CustomerManagement.Controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +24,14 @@ import com.usecase.CustomerManagement.Service.CustomerService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping(path = "customer/")
 public class CustomerManagementController {
+	
+	public static final Logger LOG = LoggerFactory.getLogger(CustomerManagementController.class);
 	
 	@Autowired
 	CustomerService customerService;
@@ -45,8 +51,10 @@ public class CustomerManagementController {
 	public ResponseEntity<UserResponse> createUser(
 			@Parameter(description = "Enter the details of new user to be created")
 			@RequestBody @Valid UserResponse createRequest) {
+		LOG.info("Triggered createUser() method in controller");
 		User userToCreate = customerMapper.responseToDomain(createRequest);
 		UserResponse createdUser = customerMapper.domainToResponse(customerService.saveUser(userToCreate));
+		LOG.info("Returning Response in createUser() method in controller");
 		return new ResponseEntity<UserResponse>(createdUser, HttpStatus.CREATED);
 		
 	}
@@ -62,7 +70,9 @@ public class CustomerManagementController {
 	public ResponseEntity<UserResponse> getUser(
 			@Parameter(description = "Enter the Id of the user")
 			@PathVariable Integer id) {
+		LOG.info("Triggered getUser() method in controller");
 		UserResponse userRes = customerMapper.domainToResponse(customerService.getUserById(id));
+		LOG.info("Returned Response in getUser() method in controller");
 		return new ResponseEntity<UserResponse>(userRes, HttpStatus.OK);
 		
 	}
@@ -82,8 +92,10 @@ public class CustomerManagementController {
 			@Parameter(description = "Enter only the fields of user to be updated")
 			@RequestBody @Valid UserResponse updateRequest) {
 		
+		LOG.info("Triggered updateUser() method in controller");
 		User userUpdateReq = customerMapper.responseToDomain(updateRequest);
 		UserResponse updatedUser = customerMapper.domainToResponse(customerService.updateUser(userUpdateReq, id));
+		LOG.info("Returned Response in updateUser() method in controller");
 		return new ResponseEntity<UserResponse>(updatedUser, HttpStatus.CREATED);
 		
 		
@@ -103,11 +115,11 @@ public class CustomerManagementController {
 			@Parameter(description = "Enter the full details of user to be Updated")
 			@Valid @RequestBody UserResponse updateRequest) {
 		
-		System.out.println(updateRequest.getEmail() + " "+updateRequest.getName()+" "+updateRequest.getContactNum());
+		LOG.info("Triggered updateUserByPut() method in controller");
 		User userUpdateReq = customerMapper.responseToDomain(updateRequest);
-		System.out.println(userUpdateReq.getEmail() + " "+userUpdateReq.getName()+" "+userUpdateReq.getContactNum());
 		userUpdateReq.setId(id);
-		UserResponse updatedUser = customerMapper.domainToResponse(customerService.saveUser(userUpdateReq));
+		UserResponse updatedUser = customerMapper.domainToResponse(customerService.updateUserByPut(userUpdateReq));
+		LOG.info("Returned Response in updateUserByPut() method in controller");
 		return new ResponseEntity<UserResponse>(updatedUser, HttpStatus.CREATED);
 		
 		
@@ -124,7 +136,9 @@ public class CustomerManagementController {
 	public ResponseEntity<String> deleteUser(
 			@Parameter(description = "Enter the Id of the user")
 			@PathVariable Integer id) {
+		LOG.info("Triggered deleteUser() method in controller");
 		customerService.deleteUser(id);
+		LOG.info("Returned Response in deleteUser() method in controller");
 		return new ResponseEntity<String>("User with "+id+ " is Successfully deleted", HttpStatus.ACCEPTED);
 		
 	}
