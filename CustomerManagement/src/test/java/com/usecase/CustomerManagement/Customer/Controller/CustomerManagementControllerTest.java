@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.CustomerController;
+package com.usecase.CustomerManagement.Customer.Controller;
 
 import static org.junit.Assert.assertEquals;
 
