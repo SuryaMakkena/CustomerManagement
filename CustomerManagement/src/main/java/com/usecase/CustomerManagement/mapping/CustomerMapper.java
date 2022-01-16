@@ -1,12 +1,12 @@
-package com.usecase.CustomerManagement.Mapping;
+package com.usecase.CustomerManagement.mapping;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 
-import com.usecase.CustomerManagement.Controller.UserResponse;
-import com.usecase.CustomerManagement.Domain.User;
-import com.usecase.CustomerManagement.Entity.UserEntity;
+import com.usecase.CustomerManagement.controller.UserResponse;
+import com.usecase.CustomerManagement.domain.User;
+import com.usecase.CustomerManagement.entity.UserEntity;
 
 @Configuration
 public class CustomerMapper {
@@ -21,7 +21,7 @@ public class CustomerMapper {
 		}
 		userEntity.setName(user.getName());
 		userEntity.setEmail(user.getEmail());
-		userEntity.setContactnum(user.getContactNum());
+		userEntity.setContactNum(user.getContactNum());
 		LOG.info("In Customer Mapper mapping completed from domain to Entity");
 		return userEntity;
 	}
@@ -32,7 +32,7 @@ public class CustomerMapper {
 		user.setId(userEntity.getId());
 		user.setName(userEntity.getName());
 		user.setEmail(userEntity.getEmail());
-		user.setContactNum(userEntity.getContactnum());
+		user.setContactNum(userEntity.getContactNum());
 		LOG.info("In Customer Mapper mapping completed from Entity to Domain");
 		return user;
 	}

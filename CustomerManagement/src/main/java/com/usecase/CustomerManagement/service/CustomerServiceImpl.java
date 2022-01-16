@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Service;
+package com.usecase.CustomerManagement.service;
 
 import java.util.Optional;
 
@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.usecase.CustomerManagement.Domain.User;
-import com.usecase.CustomerManagement.Entity.UserEntity;
+import com.usecase.CustomerManagement.domain.User;
+import com.usecase.CustomerManagement.entity.UserEntity;
 import com.usecase.CustomerManagement.Exceptions.UserNotFoundException;
-import com.usecase.CustomerManagement.Mapping.CustomerMapper;
-import com.usecase.CustomerManagement.Repository.CustomerRepository;
+import com.usecase.CustomerManagement.mapping.CustomerMapper;
+import com.usecase.CustomerManagement.repository.CustomerRepository;
 
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -56,7 +56,7 @@ public class CustomerServiceImpl implements CustomerService{
 			}
 			
 			if(user.getContactNum() != null) {
-				userToUpdate.setContactnum(user.getContactNum());
+				userToUpdate.setContactNum(user.getContactNum());
 			}
 			return this.customerMapper.entityToDomain(customerRepository.save(userToUpdate));
 		}

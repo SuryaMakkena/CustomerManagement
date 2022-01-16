@@ -11,11 +11,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import com.usecase.CustomerManagement.Domain.User;
-import com.usecase.CustomerManagement.Entity.UserEntity;
-import com.usecase.CustomerManagement.Mapping.CustomerMapper;
-import com.usecase.CustomerManagement.Repository.CustomerRepository;
-import com.usecase.CustomerManagement.Service.CustomerServiceImpl;
+import com.usecase.CustomerManagement.domain.User;
+import com.usecase.CustomerManagement.entity.UserEntity;
+import com.usecase.CustomerManagement.mapping.CustomerMapper;
+import com.usecase.CustomerManagement.repository.CustomerRepository;
+import com.usecase.CustomerManagement.service.CustomerServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerServiceImplTest {
@@ -101,7 +101,7 @@ public class CustomerServiceImplTest {
 		userEntity.setId(1);
 		userEntity.setName("surya");
 		userEntity.setEmail("surya4992@gmail.com");
-		userEntity.setContactnum("9999999999");
+		userEntity.setContactNum("9999999999");
 		return userEntity;
 		
 	}

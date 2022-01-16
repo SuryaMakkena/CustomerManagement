@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Entity;
+package com.usecase.CustomerManagement.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,18 +24,6 @@ import lombok.NoArgsConstructor;
 @Entity(name = "User")
 @Table(name = "User")
 public class UserEntity {
-	
-	public UserEntity() {
-		super();
-	}
-
-	public UserEntity(int id, String name, String email, String contactNum) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.contactNum = contactNum;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,38 +44,5 @@ public class UserEntity {
 	@Pattern(regexp="(^$|[0-9]{10})")
 	@Column(name = "contactnum", nullable = false)
 	private String contactNum;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getContactnum() {
-		return contactNum;
-	}
-
-	public void setContactnum(String contactnum) {
-		this.contactNum = contactnum;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(int id) {
-		this.id = id;
-	}
-	
 
 }

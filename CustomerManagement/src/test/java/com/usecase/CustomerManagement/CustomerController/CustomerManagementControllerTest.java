@@ -11,11 +11,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.usecase.CustomerManagement.Controller.CustomerManagementController;
-import com.usecase.CustomerManagement.Controller.UserResponse;
-import com.usecase.CustomerManagement.Domain.User;
-import com.usecase.CustomerManagement.Mapping.CustomerMapper;
-import com.usecase.CustomerManagement.Service.CustomerServiceImpl;
+import com.usecase.CustomerManagement.controller.CustomerManagementController;
+import com.usecase.CustomerManagement.controller.UserResponse;
+import com.usecase.CustomerManagement.domain.User;
+import com.usecase.CustomerManagement.mapping.CustomerMapper;
+import com.usecase.CustomerManagement.service.CustomerServiceImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CustomerManagementControllerTest {

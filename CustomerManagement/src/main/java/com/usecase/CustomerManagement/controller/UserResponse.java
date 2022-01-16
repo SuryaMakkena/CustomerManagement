@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Controller;
+package com.usecase.CustomerManagement.controller;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
@@ -26,39 +26,5 @@ public class UserResponse {
 	@Size(min=10,max=10, message = "Phone number doesn't have exactly 10 digits")
 	@Pattern(regexp="(^$|[0-9]{10})", message = "format for mobile number is not valid")
 	private String contactNum;
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getContactNum() {
-		return contactNum;
-	}
-
-	public void setContactNum(String contactNum) {
-		this.contactNum = contactNum;
-	}
-
-	
 
 }

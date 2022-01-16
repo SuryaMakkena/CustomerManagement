@@ -1,6 +1,6 @@
-package com.usecase.CustomerManagement.Service;
+package com.usecase.CustomerManagement.service;
 
-import com.usecase.CustomerManagement.Domain.User;
+import com.usecase.CustomerManagement.domain.User;
 
 public interface CustomerService {
 	

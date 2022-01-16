@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Swagger;
+package com.usecase.CustomerManagement.swagger;
 
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;

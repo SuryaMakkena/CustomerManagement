@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Controller;
+package com.usecase.CustomerManagement.controller;
 
 import javax.validation.Valid;
 
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usecase.CustomerManagement.Domain.User;
-import com.usecase.CustomerManagement.Mapping.CustomerMapper;
-import com.usecase.CustomerManagement.Service.CustomerService;
+import com.usecase.CustomerManagement.domain.User;
+import com.usecase.CustomerManagement.mapping.CustomerMapper;
+import com.usecase.CustomerManagement.service.CustomerService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
