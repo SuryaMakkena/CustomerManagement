@@ -1,4 +1,4 @@
-package com.usecase.CustomerManagement.Exceptions;
+package com.usecase.CustomerManagement.exceptions;
 
 public class UserNotFoundException extends RuntimeException {
 	

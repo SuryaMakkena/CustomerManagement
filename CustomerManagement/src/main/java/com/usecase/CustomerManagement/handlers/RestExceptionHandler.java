@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.usecase.CustomerManagement.Exceptions.UserNotFoundException;
+import com.usecase.CustomerManagement.exceptions.UserNotFoundException;
 
 @RestControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler{
@@ -24,7 +24,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler{
 	}
 	
 	@ExceptionHandler(DataIntegrityViolationException.class)
-public ResponseEntity<String> handleDataIntegrityViolationException(Exception ex) {
+	public ResponseEntity<String> handleDataIntegrityViolationException(Exception ex) {
 		LOG.info("Handling DataIntegrityViolationException");
 		return new ResponseEntity<String>("The inputs you entered are not valid. Please check whether there is any null value",HttpStatus.BAD_REQUEST);
 	}

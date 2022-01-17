@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.usecase.CustomerManagement.domain.User;
 import com.usecase.CustomerManagement.entity.UserEntity;
-import com.usecase.CustomerManagement.Exceptions.UserNotFoundException;
+import com.usecase.CustomerManagement.exceptions.UserNotFoundException;
 import com.usecase.CustomerManagement.mapping.CustomerMapper;
 import com.usecase.CustomerManagement.repository.CustomerRepository;
 
