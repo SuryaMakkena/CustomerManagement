@@ -4,6 +4,8 @@ import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,10 +36,13 @@ public class CustomerManagementController {
 	public static final Logger LOG = LoggerFactory.getLogger(CustomerManagementController.class);
 	
 	@Autowired
-	CustomerService customerService;
+	private CustomerService customerService;
 	
 	@Autowired
-	CustomerMapper customerMapper;
+	private CustomerMapper customerMapper;
+
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
 	
 	
 	@Operation(summary = "Create a new Customer User",
@@ -48,12 +53,18 @@ public class CustomerManagementController {
     @ApiResponse(responseCode = "403", description = "The user cannot access this resource")
     @ApiResponse(responseCode = "404", description = "Not found")
 	@PostMapping(path = "/new")
+	@RabbitListener(queues = "customer_queue")
 	public ResponseEntity<UserResponse> createUser(
 			@Parameter(description = "Enter the details of new user to be created")
 			@RequestBody @Valid UserResponse createRequest) {
-		LOG.info("Triggered createUser() method in controller");
+		LOG.info("Triggered createUser() method in controller and Listening at RabbitMQ");
+		System.out.println(createRequest.toString());
+		createRequest.getName().toUpperCase();
+		System.out.println(createRequest.toString());
 		User userToCreate = customerMapper.responseToDomain(createRequest);
 		UserResponse createdUser = customerMapper.domainToResponse(customerService.saveUser(userToCreate));
+		LOG.info("Adding Response to RabbitMQ");
+		rabbitTemplate.convertAndSend("customer_exchange","routing_key",createdUser.getId());
 		LOG.info("Returning Response in createUser() method in controller");
 		return new ResponseEntity<UserResponse>(createdUser, HttpStatus.CREATED);
 		
