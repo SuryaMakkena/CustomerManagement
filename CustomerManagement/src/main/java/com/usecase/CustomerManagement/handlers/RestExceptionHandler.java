@@ -12,21 +12,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import com.usecase.CustomerManagement.exceptions.UserNotFoundException;
 
 @RestControllerAdvice
-public class RestExceptionHandler extends ResponseEntityExceptionHandler{
-	
-	public static final Logger LOG = LoggerFactory.getLogger(RestExceptionHandler.class);
-	
-	@ExceptionHandler(UserNotFoundException.class)
-	public ResponseEntity<String> handleUserNotFoundException(Exception ex) {
-		LOG.info("Handling User not found Exception");
-		return new ResponseEntity<String>(ex.getMessage(),HttpStatus.NOT_FOUND);
-		
-	}
-	
-	@ExceptionHandler(DataIntegrityViolationException.class)
-	public ResponseEntity<String> handleDataIntegrityViolationException(Exception ex) {
-		LOG.info("Handling DataIntegrityViolationException");
-		return new ResponseEntity<String>("The inputs you entered are not valid. Please check whether there is any null value",HttpStatus.BAD_REQUEST);
-	}
+public class RestExceptionHandler extends ResponseEntityExceptionHandler {
+
+    public static final Logger LOG = LoggerFactory.getLogger(RestExceptionHandler.class);
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<String> handleUserNotFoundException(Exception ex) {
+        LOG.info("Handling User not found Exception");
+        return new ResponseEntity<String>(ex.getMessage(), HttpStatus.NOT_FOUND);
+
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<String> handleDataIntegrityViolationException(Exception ex) {
+        LOG.info("Handling DataIntegrityViolationException");
+        return new ResponseEntity<String>("The inputs you entered are not valid. Please check whether there is any null value", HttpStatus.BAD_REQUEST);
+    }
 
 }

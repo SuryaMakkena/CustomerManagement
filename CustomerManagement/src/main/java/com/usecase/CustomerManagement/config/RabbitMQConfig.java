@@ -1,4 +1,5 @@
-package com.usecase.CustomerManagement.rabbitmqconfig;
+/*
+package com.usecase.CustomerManagement.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -13,7 +14,12 @@ public class RabbitMQConfig {
 
     @Bean
     public Queue queue() {
-        return new Queue("customer_queue");
+        return new Queue("customer_req_queue");
+    }
+
+    @Bean
+    public Queue resQueue() {
+        return new Queue("customer_res_queue");
     }
 
     @Bean
@@ -22,8 +28,18 @@ public class RabbitMQConfig {
     }
 
     @Bean
+    public TopicExchange resExchange() {
+        return new TopicExchange("customer_res_exchange");
+    }
+
+    @Bean
+    public Binding bindingResQueue(Queue queue, TopicExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange).with("res_routing_key");
+    }
+
+    @Bean
     public Binding binding(Queue queue, TopicExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with("routing_key");
+        return BindingBuilder.bind(queue).to(exchange).with("req_routing_key");
     }
 
     @Bean
@@ -39,3 +55,4 @@ public class RabbitMQConfig {
     }
 }
 
+*/

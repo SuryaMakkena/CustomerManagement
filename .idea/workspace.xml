@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="94b829ae-b949-4d82-96b0-1299e947a1ad" name="Default Changelist" comment="Change in Domain name and basic config">
+    <list default="true" id="94b829ae-b949-4d82-96b0-1299e947a1ad" name="Default Changelist" comment="Rabbit MQ included">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/CustomerManagementApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/CustomerManagementApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/ServletInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/ServletInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/CustomerManagementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/CustomerManagementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/entity/UserEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/exceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/handlers/RestExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/handlers/RestExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/mapping/CustomerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/mapping/CustomerMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/service/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/service/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/swagger/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/swagger/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CustomerManagement/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/CustomerManagement/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +59,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/ford/sierra-service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CustomerManagement" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RunAnythingCache">
@@ -236,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642434114884</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Rabbit MQ included">
+      <created>1642437138244</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1642437138244</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,23 +276,8 @@
       <path value="$PROJECT_DIR$/CustomerManagement" />
     </ignored-roots>
     <MESSAGE value="Change in Domain name and basic config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change in Domain name and basic config" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/CustomerManagementController.java</url>
-          <line>60</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/CustomerManagement/src/main/java/com/usecase/CustomerManagement/controller/CustomerManagementController.java</url>
-          <line>61</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Rabbit MQ included" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rabbit MQ included" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

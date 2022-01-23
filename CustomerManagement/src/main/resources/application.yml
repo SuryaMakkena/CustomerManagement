@@ -4,6 +4,23 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+  main:
+    allow-bean-definition-overriding: true
+
+  rabbitmq:
+    addresses: localhost:5672
+    adminAddresses: http://localhost:15672
+    username: guest
+    password: guest
+
+    listener:
+      direct:
+        retry:
+          enabled=true:
+      simple:
+        retry:
+          enabled=true:
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,4 +30,3 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.MySQL57InnoDBDialect
 springdoc.api-docs.path : /api-docs
-
