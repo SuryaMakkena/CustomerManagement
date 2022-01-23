@@ -33,11 +33,11 @@ public class CustomerManagementControllerTest {
 	public void createuserTest(){
 		UserResponse userRes = mockUserResponse();
 		User user = mockUser();
-		ResponseEntity<UserResponse> expected = new ResponseEntity<UserResponse>(userRes, HttpStatus.CREATED);
+		ResponseEntity<String> expected = new ResponseEntity<String>(userRes.getId().toString(), HttpStatus.CREATED);
 		Mockito.when(customerService.saveUser(user)).thenReturn(user);
 		Mockito.when(customerMapper.responseToDomain(userRes)).thenReturn(user);
 		Mockito.when(customerMapper.domainToResponse(user)).thenReturn(userRes);
-		ResponseEntity<UserResponse> actual = customerController.createUser(userRes);
+		ResponseEntity<String> actual = customerController.createUser(userRes);
 		assertEquals(expected, actual);
 	}
 	

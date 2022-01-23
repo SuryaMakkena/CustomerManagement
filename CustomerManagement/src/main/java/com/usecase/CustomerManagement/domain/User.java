@@ -14,10 +14,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-	
-	private Integer id;
-	private String name;
-	private String email;
-	private String contactNum;
+
+    private Integer id;
+    private String name;
+    private String email;
+    private String contactNum;
 
 }
