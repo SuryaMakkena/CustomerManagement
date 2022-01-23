@@ -25,24 +25,24 @@ import lombok.NoArgsConstructor;
 @Table(name = "User")
 public class UserEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id", nullable = false)
-	private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    private int id;
 
-	@NotNull
-	@Size(min = 1, max = 256, message = "Max length of name is 256")
-	@Column(name = "name", nullable = false)
-	private String name;
-	
-	@NotNull
-	@Column(name = "email", nullable = false)
-	private String email;
-	
-	@Size(min=10,max=10)
-	@NotNull
-	@Pattern(regexp="(^$|[0-9]{10})")
-	@Column(name = "contactnum", nullable = false)
-	private String contactNum;
+    @NotNull
+    @Size(min = 1, max = 256, message = "Max length of name is 256")
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @NotNull
+    @Column(name = "email", nullable = false)
+    private String email;
+
+    @Size(min = 10, max = 10)
+    @NotNull
+    @Pattern(regexp = "(^$|[0-9]{10})")
+    @Column(name = "contactnum", nullable = false)
+    private String contactNum;
 
 }
